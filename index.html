@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ready Register</title>
+</head>
+<body>
+    <div>
+        <form id="RegisterForm" action="">
+            <input type="text" id="nama" placeholder="Nama" /><br />
+            <input type="email" id="email" placeholder="Email" /><br />
+            <input type="password" id="password" placeholder="Password" /><br />
+            <input type="number" id="nomor_hp" placeholder="Nomor HP" /><br />
+            <input type="date" id="tanggal_lahir" placeholder="Tanggal Lahir" /><br />
+            <button type="submit" style="color: red">Submit</button>
+        </form>
+    </div>
+
+    <table id="datatabel" border="1" style="border-collapse: collapse; margin-top: 20px;">
+        <thead>
+            <tr>
+                <th>Nama</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Nomor HP</th>
+                <th>Tanggal Lahir</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script>
+        document.getElementById("RegisterForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const nama = document.getElementById("nama").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            const nomorHp = document.getElementById("nomor_hp").value;
+            const tanggalLahir = document.getElementById("tanggal_lahir").value;
+
+            const table = document.getElementById("datatabel").getElementsByTagName("tbody")[0];
+            const newRow = table.insertRow();
+
+            newRow.insertCell(0).textContent = nama;
+            newRow.insertCell(1).textContent = email;
+            newRow.insertCell(2).textContent = password;
+            newRow.insertCell(3).textContent = nomorHp;
+            newRow.insertCell(4).textContent = tanggalLahir;
+
+            document.getElementById("RegisterForm").reset();
+        });
+    </script>
+</body>
+</html>
